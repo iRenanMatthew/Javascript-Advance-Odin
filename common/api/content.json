@@ -1,0 +1,14 @@
+[
+  {
+    "id": "object-constructors",
+    "title": "Objects and object constructors",
+    "icon": "mdi mdi-family-tree",
+    "url": "./lessons/object-constructors/objects.html"
+  },
+  {
+    "id": "factory-functions",
+    "title": "Factory Functions and the Module Pattern",
+    "icon": "mdi mdi-family-tree",
+    "url": "./lesson/objects.html"
+  }
+]

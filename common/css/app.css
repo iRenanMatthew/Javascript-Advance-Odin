@@ -1,0 +1,113 @@
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5em 0 3em;
+  font-weight: bold;
+}
+
+header h1 {
+  font-size: 4em;
+  background: #89b9f3;
+  background: linear-gradient(to right, #89b9f3 0%, #f862a4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  font-size: 1.5em;
+}
+
+main {
+  padding-inline: 3em;
+}
+
+.lesson-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+
+.lesson-container .content-item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.lesson-container .content-item a:visited,
+.lesson-container .content-item a:focus-visible,
+.lesson-container .content-item a:hover,
+.lesson-container .content-item a:focus {
+  color: var(--secondary-color);
+}
+
+.lesson-container .content-item .content-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--secondary-color);
+  font-size: 4em;
+  background: linear-gradient(0deg, #000, #272727);
+  border-radius: 0.3em;
+  margin: 0 0 0.3em;
+  width: 200px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.lesson-container .content-item .content-image:before,
+.lesson-container .content-item .content-image:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border-radius: 0.3em;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 30s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.block:after {
+  filter: blur(50px);
+}
+
+.lesson-container .content-item .content-title {
+  font-weight: bold;
+}
