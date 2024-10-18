@@ -22,13 +22,23 @@ fetchJSONData().then((data) => {
 
 function insertContentData(content) {
   content.forEach(({ id, title, icon, url }) => {
-    contentHTML += `
-    <div class="content-item ${id}" >
-      <a class="content-image" href="${url}" target="_self">
-        <span class="${icon}"></span>
-      </a>
-      <p class="content-title">${title}</p> 
-     </div>`;
+    if (id === "coming-soon") {
+      contentHTML += `
+      <div class="content-item ${id}" >
+        <a class="content-image" href="${url}" target="_self"
+         style="background: url('${icon}') center center / 100% no-repeat; background-size: cover;">
+        </a>
+        <p class="content-title">${title}</p> 
+       </div>`;
+    } else {
+      contentHTML += `
+      <div class="content-item ${id}" >
+        <a class="content-image" href="${url}" target="_self">
+          <span class="${icon}"></span>
+        </a>
+        <p class="content-title">${title}</p> 
+       </div>`;
+    }
   });
 
   console.log(contentHTML);

@@ -2,6 +2,18 @@ body {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   text-align: center;
+  margin-inline: auto;
+}
+
+header,
+main {
+  width: 640px;
+  margin-inline: auto;
+}
+
+.lesson-content {
+  width: 840px;
+  margin-inline: auto;
 }
 
 header {
@@ -9,7 +21,7 @@ header {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 5em 0 3em;
+  margin: 5em auto 3em;
   font-weight: bold;
 }
 
@@ -29,10 +41,15 @@ main {
   padding-inline: 3em;
 }
 
+main h1 {
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
 .lesson-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em 1em;
 }
 
 .lesson-container .content-item {
@@ -40,7 +57,6 @@ main {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-top: 2em;
 }
 
 .lesson-container .content-item a:visited,
@@ -63,6 +79,12 @@ main {
   width: 200px;
   height: 150px;
   cursor: pointer;
+  transition: color ease-in-out 100ms;
+}
+
+.lesson-container .content-item .content-image:hover,
+.lesson-container .content-item .content-image:hover + .content-title {
+  color: var(--white);
 }
 
 .lesson-container .content-item .content-image:before,
@@ -109,5 +131,19 @@ main {
 }
 
 .lesson-container .content-item .content-title {
+  width: 200px;
   font-weight: bold;
+}
+
+.lesson-content .lesson-title {
+  font-size: 2em;
+  font-weight: bold;
+  background: #89b9f3;
+  background: linear-gradient(to right, #89b9f3 0%, #f862a4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lesson-content .bg {
+  background: none;
 }

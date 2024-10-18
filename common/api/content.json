@@ -10,5 +10,17 @@
     "title": "Factory Functions and the Module Pattern",
     "icon": "mdi mdi-family-tree",
     "url": "./lesson/objects.html"
+  },
+  {
+    "id": "coming-soon",
+    "title": "Coming Soon",
+    "icon": "./common/images/coming-soon.jpg",
+    "url": ""
+  },
+  {
+    "id": "coming-soon",
+    "title": "Coming Soon",
+    "icon": "./common/images/coming-soon.jpg",
+    "url": ""
   }
 ]
