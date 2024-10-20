@@ -13,7 +13,7 @@ main {
 
 .lesson-content {
   width: 840px;
-  margin-inline: auto;
+  margin: 3em auto;
 }
 
 header {
@@ -133,10 +133,6 @@ main h1 {
 .lesson-container .content-item .content-title {
   width: 200px;
   font-weight: bold;
-}
-
-.lesson-content {
-  margin-top: 3em;
 }
 
 .lesson-content p {

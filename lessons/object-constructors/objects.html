@@ -31,18 +31,11 @@
       <p>Object is known for storing data like this.</p>
 
       <iframe
-        src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=none&l=auto&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=145%25&si=false&es=2x&wm=false&code=%252F%252F%2520example%2520one%250Aconst%2520playerOneName%2520%253D%2520%2522tim%2522%253B%250Aconst%2520playerTwoName%2520%253D%2520%2522jenn%2522%253B%250Aconst%2520playerOneMarker%2520%253D%2520%2522X%2522%253B%250Aconst%2520playerTwoMarker%2520%253D%2520%2522O%2522%253B%250A%250A%252F%252F%2520example%2520two%250Aconst%2520playerOne%2520%253D%2520%257B%250A%2520%2520name%253A%2520%2522tim%2522%252C%250A%2520%2520marker%253A%2520%2522X%2522%250A%257D%253B%250A%250Aconst%2520playerTwo%2520%253D%2520%257B%250A%2520%2520name%253A%2520%2522jenn%2522%252C%250A%2520%2520marker%253A%2520%2522O%2522%250A%257D%253B"
-        style="
-          width: 680px;
-          height: 360px;
-          border: 0;
-          transform: scale(1);
-          overflow: hidden;
-        "
-        sandbox="allow-scripts allow-same-origin"
-        class="example-code"
-      >
-      </iframe>
+      src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=sharp&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=139%25&si=false&es=2x&wm=false&code=%252F%252F%2520example%2520one%250Aconst%2520bookTitle1%2520%253D%2520%2522The%2520Hobbit%2522%253B%250Aconst%2520bookTitle2%2520%253D%2520%2522Atomic%2520Habits%2522%253B%250Aconst%2520bookAuthor1%2520%253D%2520%2522J.R.R%2520Tolkien%2522%253B%250Aconst%2520bookAuthor2%2520%253D%2520%2522James%2520Clear%2522%253B%250Aconst%2520bookPages1%2520%253D%2520%2522295%2522%253B%250Aconst%2520bookPages2%2520%253D%2520%2522200%2522%253B%250Aconst%2520bookRead1%2520%253D%2520%2522false%2522%253B%250Aconst%2520bookRead2%2520%253D%2520%2522true%2522%253B%250A%250A%252F%252F%2520example%2520two%250Aconst%2520reader1%2520%253D%2520%257B%250A%2520%2520title%253A%2520%2522The%2520Hobbit%2522%252C%250A%2520%2520author%253A%2520%2522J.R.R%2520Tolkien%2522%252C%250A%2520%2520pages%253A%2520295%252C%250A%2520%2520read%253A%2520false%250A%257D%253B%250A%250Aconst%2520reader2%2520%253D%2520%257B%250A%2520%2520title%253A%2520%2522Atomic%2520Habits%2522%252C%250A%2520%2520author%253A%2520%2522James%2520Clear%2522%252C%250A%2520%2520pages%253A%2520200%252C%250A%2520%2520read%253A%2520true%250A%257D%253B"
+      style="width: 680px; height: 474px; border:0; transform: scale(1); overflow:hidden;"
+      sandbox="allow-scripts allow-same-origin"
+      class="example-code">
+    </iframe>
 
       <p>
         But in the long run, you will create multiple data, just like example
@@ -50,7 +43,7 @@
       </p>
 
       <p>
-        The proper way to solve it is to reusing the properties of it which wil
+        The proper way to solve it is to reusing the properties of it which will
         be easier and sustainable.
       </p>
 
@@ -70,11 +63,24 @@
 
       <p>Let's explain it line by line.</p>
 
+      <p>
+        As you can see in this line. We use the function to be a object which is
+        called <strong><em>Object Constructor</em></strong
+        >. It uses a reuseable object to avoid repeating declaration of same
+        propety just like the first example.
+      </p>
+
+      <p>
+        You can see that you can add a function inside the object constructor
+        which is the <strong><em>this.info</em></strong> function.
+      </p>
+
+
       <iframe
         src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=none&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=145%25&si=false&es=2x&wm=false&code=function%2520theHobbit%28title%252C%2520author%252C%2520pages%252C%2520read%29%2520%257B%250A%2520%2520this.title%2520%253D%2520title%250A%2520%2520this.author%2520%253D%2520author%250A%2520%2520this.pages%2520%253D%2520pages%250A%2520%2520this.read%2520%253D%2520read%250A%2520%2520this.info%2520%253D%2520function%2520%28%29%2520%257B%250A%2520%2520%2520%2520let%2520result%2520%253D%2520%27%27%250A%2520%2520%2520%2520if%2520%28%21this.read%29%2520%257B%250A%2520%2520%2520%2520%2520%2520result%2520%253D%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520not%2520read%2520yet%2560%250A%2520%2520%2520%2520%257D%2520else%2520%257B%250A%2520%2520%2520%2520%2520%2520result%2520%253D%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520reading%2520it%2560%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520return%2520console.log%28result%29%250A%2520%2520%257D%250A%257D"
         style="
           width: 680px;
-          height: 360px;
+          height: 370px;
           border: 0;
           transform: scale(1);
           overflow: hidden;
@@ -83,6 +89,45 @@
         class="example-code"
       >
       </iframe>
+
+      <p>
+        You'll noticed that I am using <strong><em>this</em></strong> keyword
+        which make them reusable. Because it serves a purpose that it reference
+        to a certain object that is declared which will be shown in next
+        example.
+      </p>
+
+      <p>
+        In order to call and use the object constructor, we must create a new
+        variable and call the created object constructor by using "new" keyword
+      </p>
+
+      <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=sharp&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=139%25&si=false&es=2x&wm=false&code=const%2520reader1%2520%253D%2520new%2520theHobbit%28%27The%2520Hobbit%27%252C%2520%27J.R.R%2520Tolkien%27%252C%2520295%252C%2520false%29%250Aconst%2520reader2%2520%253D%2520new%2520theHobbit%28%27Atomic%2520Habits%27%252C%2520%27James%2520Clear%27%252C%2520200%252C%2520true%29%250A"
+        style="
+          width: 680px;
+          height: 140px;
+          border: 0;
+          transform: scale(1);
+          overflow: hidden;
+        "
+        sandbox="allow-scripts allow-same-origin"
+        class="example-code"
+      >
+      </iframe>
+
+      <p>
+        The relation of <strong><em>this</em></strong> keyword to the created
+        variable is to reference where it came from. It does not store into the 
+        object constructor but it reference to the created variable which is
+        <strong><em>reader1</em></strong>. It shows that <strong><em>reader1</em></strong> has containing the data which is:
+        <ul>
+          <li><strong><em>• Title: The Hobbit</em></strong></li>
+          <li><strong><em>• Author: J.R.R Tolkien</em></strong></li>
+          <li><strong><em>• Pages: 295</em></strong></li>
+          <li><strong><em>• Read: false</em></strong></li>
+        </ul> 
+      </p>
     </div>
   </body>
 </html>
