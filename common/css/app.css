@@ -27,8 +27,8 @@ header {
 
 header h1 {
   font-size: 4em;
-  background: #89b9f3;
-  background: linear-gradient(to right, #89b9f3 0%, #f862a4 100%);
+  background: var(--color-blue);
+  background: var(--lg-blue-to-purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -145,8 +145,9 @@ main h1 {
 .lesson-content .lesson-title {
   font-size: 2em;
   font-weight: bold;
-  background: #89b9f3;
-  background: linear-gradient(to right, #89b9f3 0%, #f862a4 100%);
+  background: var(--color-blue);
+  background: var(--lg-blue-to-purple);
+  border-color: var(--color-blue);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

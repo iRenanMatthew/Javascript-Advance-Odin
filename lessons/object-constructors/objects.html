@@ -28,6 +28,8 @@
     <div class="lesson-content">
       <h1 class="lesson-title">Objects and Objects Constructors</h1>
 
+      <h1 class="lesson-title my-3 mx-28 py-1 border-b text-left">Objects</h1>
+
       <p>Object is known for storing data like this.</p>
 
       <iframe
@@ -41,6 +43,8 @@
         But in the long run, you will create multiple data, just like example
         above which is not sustainable in the long run.
       </p>
+
+      <h1 class="lesson-title my-3 mx-28 py-1 border-b text-left">Objects Constructors</h1>
 
       <p>
         The proper way to solve it is to reusing the properties of it which will
@@ -116,18 +120,33 @@
       >
       </iframe>
 
-      <p>
+      <p >
         The relation of <strong><em>this</em></strong> keyword to the created
         variable is to reference where it came from. It does not store into the 
         object constructor but it reference to the created variable which is
         <strong><em>reader1</em></strong>. It shows that <strong><em>reader1</em></strong> has containing the data which is:
-        <ul>
+        <ul class="pb-12">
           <li><strong><em>• Title: The Hobbit</em></strong></li>
           <li><strong><em>• Author: J.R.R Tolkien</em></strong></li>
           <li><strong><em>• Pages: 295</em></strong></li>
           <li><strong><em>• Read: false</em></strong></li>
         </ul> 
       </p>
+
+      <h1 class="lesson-title my-3 mx-28 py-1 border-b text-left">Prototype Inheritance</h1>
+
+      <p>Since we have the idea to reuse the function without repetitive declaration of object. 
+        There is a great way also that we can clone the object with declaring the same properties. 
+        It is called <strong><em>Prototype Inheritance</em></strong>.</p>
+
+        <p>There are three ways to implement the <strong><em>Prototype Inheritance</em></strong>:</p>
+        <ol class="text-left mx-32 font-medium list-decimal list-inside !list-decimal text-[#fcfcfc]">
+          <li>Using Object.setPrototype</li>
+          <li>Using Object.create</li>
+          <li>Using ES6 method</li>
+        </ol>
+
+        <p></p>
     </div>
   </body>
 </html>

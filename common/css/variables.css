@@ -2,4 +2,6 @@
   --primary-color: #1d1d1d;
   --secondary-color: #7b7979;
   --white: #fcfcfc;
+  --color-blue: #89b9f3;
+  --lg-blue-to-purple: linear-gradient(to right, #89b9f3 0%, #f862a4 100%);
 }
