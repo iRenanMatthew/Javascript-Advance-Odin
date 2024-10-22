@@ -137,7 +137,8 @@ main h1 {
 
 .lesson-content p {
   text-align: left;
-  margin: 1em 8em;
+  margin: 1em auto;
+  width: 620px;
   font-weight: 400;
   color: var(--white);
 }

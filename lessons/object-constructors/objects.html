@@ -125,11 +125,11 @@
         variable is to reference where it came from. It does not store into the 
         object constructor but it reference to the created variable which is
         <strong><em>reader1</em></strong>. It shows that <strong><em>reader1</em></strong> has containing the data which is:
-        <ul class="pb-12">
-          <li><strong><em>• Title: The Hobbit</em></strong></li>
-          <li><strong><em>• Author: J.R.R Tolkien</em></strong></li>
-          <li><strong><em>• Pages: 295</em></strong></li>
-          <li><strong><em>• Read: false</em></strong></li>
+        <ul class="text-left mx-32 font-medium list-disc list-inside text-[#fcfcfc] pb-12">
+          <li><strong><em>Title: The Hobbit</em></strong></li>
+          <li><strong><em>Author: J.R.R Tolkien</em></strong></li>
+          <li><strong><em>Pages: 295</em></strong></li>
+          <li><strong><em>Read: false</em></strong></li>
         </ul> 
       </p>
 
@@ -141,12 +141,233 @@
 
         <p>There are three ways to implement the <strong><em>Prototype Inheritance</em></strong>:</p>
         <ol class="text-left mx-32 font-medium list-decimal list-inside !list-decimal text-[#fcfcfc]">
-          <li>Using Object.setPrototype</li>
-          <li>Using Object.create</li>
-          <li>Using ES6 method</li>
+          <li>Using Object.setPrototypeOf</li>
+          <li>Using Object.create "Constructor Method"</li>
+          <li>Using ES6 Class (Modern JavaScript Implementation)</li>
         </ol>
 
-        <p>1. Using Object.setPrototype</p>
+        <p class="font-black text-3xl">1. Using Object.setPrototypeOf()</p>
+        
+        <p>It shows how to inherit the constructor by using Object.setPrototypeOf. 
+        </p>
+
+        <ol class="text-left mx-32 list-decimal list-inside !list-decimal text-[#fcfcfc]">
+          <li>
+            Parent Construtor is the Book function with the properties of
+            title, author, pages, and read. Instead of including the function/method info() 
+            inside the Parent Constructor, I separate it to make it readable and 
+            doing the standard for creating function for inheritance.
+          </li>
+          <br>
+            <li>
+              Child Constructor is the SelfImprovementBook function. To inherit the class from Parent Constructor
+              (Book Function), it must use ParentConstructor.call(this, ...) to inherit and initialize shared properties.
+              Also to add a new properties, you must put after the ParentConstructor.call() method.
+            </li>
+            <br>
+            <li>
+              In using Object.setPrototypeOf(param1,param2), it has two parameter.
+              <br>
+              Param1 = Child Constructor (SelfImprovementBook)
+              <br>
+              Param2 = Parent Constructor (Book) 
+              <br>
+              In this way, we inherit the properties from Parent to Child Constructor.
+            </li>
+            <br>
+            <li>
+              I add function/method named showTopic to do some function. 
+              In order to do that. I must call ChildConstructor.prototype.showTopic. 
+              Just like in the previous way of creating methods for cleaner approach.
+            </li>
+            <br>
+            <li>
+              In order to use the inherited prototype, I must create new instances which is 
+              book1 and book2 and using <strong><em>new</em></strong> keyword to use created constructor.
+            </li>
+
+          </ol>
+
+        <iframe
+  src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=sharp&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=139%25&si=false&es=2x&wm=false&code=%252F%252F%2520Parent%2520Constructor%2520Function%253A%2520Book%250Afunction%2520Book%28title%252C%2520author%252C%2520pages%252C%2520read%29%2520%257B%250A%2520%2520this.title%2520%253D%2520title%253B%250A%2520%2520this.author%2520%253D%2520author%253B%250A%2520%2520this.pages%2520%253D%2520pages%253B%250A%2520%2520this.read%2520%253D%2520read%253B%250A%257D%250A%250A%252F%252F%2520Add%2520the%2520%27info%27%2520method%2520to%2520Book%27s%2520prototype%250ABook.prototype.info%2520%253D%2520function%2520%28%29%2520%257B%250A%2520%2520const%2520result%2520%253D%2520this.read%250A%2520%2520%2520%2520%253F%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520reading%2520it%2560%250A%2520%2520%2520%2520%253A%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520not%2520read%2520yet%2560%253B%250A%2520%2520console.log%28result%29%253B%250A%257D%253B%250A%250A%252F%252F%2520Child%2520Constructor%2520Function%253A%2520SelfImprovementBook%250Afunction%2520SelfImprovementBook%28title%252C%2520author%252C%2520pages%252C%2520read%252C%2520topic%29%2520%257B%250A%2520%2520%252F%252F%2520Call%2520the%2520Book%2520constructor%2520to%2520initialize%2520shared%2520properties%250A%2520%2520Book.call%28this%252C%2520title%252C%2520author%252C%2520pages%252C%2520read%29%253B%250A%2520%2520this.topic%2520%253D%2520topic%253B%2520%252F%252F%2520New%2520property%2520specific%2520to%2520self-improvement%2520books%250A%257D%250A%250A%252F%252F%2520Use%2520Object.setPrototypeOf%28%29%2520to%2520set%2520up%2520inheritance%250AObject.setPrototypeOf%28SelfImprovementBook.prototype%252C%2520Book.prototype%29%253B%250A%250A%252F%252F%2520Add%2520a%2520%27showTopic%27%2520method%2520to%2520SelfImprovementBook%27s%2520prototype%250ASelfImprovementBook.prototype.showTopic%2520%253D%2520function%2520%28%29%2520%257B%250A%2520%2520console.log%28%2560This%2520book%2520focuses%2520on%253A%2520%2524%257Bthis.topic%257D%2560%29%253B%250A%257D%253B%250A%250A%252F%252F%2520Create%2520instances%2520of%2520SelfImprovementBook%250Aconst%2520book1%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522The%252048%2520Laws%2520of%2520Power%2522%252C%250A%2520%2520%2522Robert%2520Greene%2522%252C%250A%2520%2520452%252C%250A%2520%2520true%252C%250A%2520%2520%2522Power%2520Dynamics%2522%250A%29%253B%250A%250Aconst%2520book2%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522Atomic%2520Habits%2522%252C%250A%2520%2520%2522James%2520Clear%2522%252C%250A%2520%2520320%252C%250A%2520%2520false%252C%250A%2520%2520%2522Habits%2520and%2520Productivity%2522%250A%29%253B%250A%250A%252F%252F%2520Use%2520the%2520methods%250Abook1.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522The%252048%2520Laws%2520of%2520Power%252C%2520by%2520Robert%2520Greene%252C%2520452%2520pages%252C%2520reading%2520it%2522%250Abook1.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Power%2520Dynamics%2522%250A%250Abook2.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522Atomic%2520Habits%252C%2520by%2520James%2520Clear%252C%2520320%2520pages%252C%2520not%2520read%2520yet%2522%250Abook2.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Habits%2520and%2520Productivity%2522"
+  style="width: 680px; height: 1200px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin"
+  class="example-code">
+</iframe>
+
+<p class="font-black text-3xl">2. Using Object.create() "Constructor Method"</p>
+
+<p>It shows how to inherit the constructor by using Object.create(). 
+  It is the same as Object.setPrototypeOf() but it differs usage scenarios.
+</p>
+
+<ol class="text-left mx-32 list-decimal list-inside !list-decimal text-[#fcfcfc]">
+  <li>
+    Parent Construtor is the Book function with the properties of
+    title, author, pages, and read. Instead of including the function/method info() 
+    inside the Parent Constructor, I separate it to make it readable and 
+    doing the standard for creating function for inheritance.
+  </li>
+  <br>
+    <li>
+      Child Constructor is the SelfImprovementBook function. To inherit the class from Parent Constructor
+      (Book Function), it must use ParentConstructor.call(this, ...) to inherit and initialize shared properties.
+      Also to add a new properties, you must put after the ParentConstructor.call() method.
+    </li>
+    <br>
+    <li>
+      In using Object.create(param1), it has one parameter.
+      <br>
+      Param1 = Parent Constructor (Book)
+      <br>
+      In order to use it. We have a pattern to use:
+      <br>
+      ChildConstructor.prototype = Object.create(ParentConstrutor.prototype);
+      <br>
+      In this way, we inherit the properties from Parent to Child Constructor.
+    </li>
+    <br>
+    <li>
+      This will be different from Object.setprototypeof because we need to point our inherited constructor
+      which is Child Constructor to itself to work properly. To do it, we must have a pattern that
+      <br>
+      ChildConstructor.prototype.constructor = ChildConstructor;
+      <br>
+    </li>
+    <br>
+    <li>
+      I add function/method named showTopic to do some function. 
+      In order to do that. I must call ChildConstructor.prototype.showTopic. 
+      Just like in the previous way of creating methods for cleaner approach.
+    </li>
+    <br>
+    <li>
+      In order to use the inherited prototype, I must create new instances which is 
+      book1 and book2 and using <strong><em>new</em></strong> keyword to use created constructor.
+    </li>
+  </ol>
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=sharp&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=139%25&si=false&es=2x&wm=false&code=%252F%252F%2520Parent%2520Constructor%2520Function%253A%2520Book%250Afunction%2520Book%28title%252C%2520author%252C%2520pages%252C%2520read%29%2520%257B%250A%2520%2520this.title%2520%253D%2520title%253B%250A%2520%2520this.author%2520%253D%2520author%253B%250A%2520%2520this.pages%2520%253D%2520pages%253B%250A%2520%2520this.read%2520%253D%2520read%253B%250A%257D%250A%250A%252F%252F%2520Add%2520the%2520%27info%27%2520method%2520to%2520Book%27s%2520prototype%250ABook.prototype.info%2520%253D%2520function%2520%28%29%2520%257B%250A%2520%2520const%2520result%2520%253D%2520this.read%250A%2520%2520%2520%2520%253F%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520reading%2520it%2560%250A%2520%2520%2520%2520%253A%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520not%2520read%2520yet%2560%253B%250A%2520%2520console.log%28result%29%253B%250A%257D%253B%250A%250A%252F%252F%2520Child%2520Constructor%2520Function%253A%2520SelfImprovementBook%250Afunction%2520SelfImprovementBook%28title%252C%2520author%252C%2520pages%252C%2520read%252C%2520topic%29%2520%257B%250A%2520%2520%252F%252F%2520Call%2520the%2520Book%2520constructor%2520to%2520initialize%2520shared%2520properties%250A%2520%2520Book.call%28this%252C%2520title%252C%2520author%252C%2520pages%252C%2520read%29%253B%250A%2520%2520this.topic%2520%253D%2520topic%253B%2520%252F%252F%2520New%2520property%2520specific%2520to%2520self-improvement%2520books%250A%257D%250A%250A%252F%252F%2520Use%2520Object.create%28%29%2520to%2520set%2520up%2520inheritance%2520from%2520Book%27s%2520prototype%250ASelfImprovementBook.prototype%2520%253D%2520Object.create%28Book.prototype%29%253B%250A%250A%252F%252F%2520Ensure%2520the%2520constructor%2520property%2520points%2520to%2520SelfImprovementBook%250ASelfImprovementBook.prototype.constructor%2520%253D%2520SelfImprovementBook%253B%250A%250A%252F%252F%2520Add%2520a%2520%27showTopic%27%2520method%2520to%2520SelfImprovementBook%27s%2520prototype%250ASelfImprovementBook.prototype.showTopic%2520%253D%2520function%2520%28%29%2520%257B%250A%2520%2520console.log%28%2560This%2520book%2520focuses%2520on%253A%2520%2524%257Bthis.topic%257D%2560%29%253B%250A%257D%253B%250A%250A%252F%252F%2520Create%2520instances%2520of%2520SelfImprovementBook%250Aconst%2520book1%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522The%252048%2520Laws%2520of%2520Power%2522%252C%2520%250A%2520%2520%2522Robert%2520Greene%2522%252C%2520%250A%2520%2520452%252C%2520%250A%2520%2520true%252C%2520%250A%2520%2520%2522Power%2520Dynamics%2522%250A%29%253B%250A%250Aconst%2520book2%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522Atomic%2520Habits%2522%252C%2520%250A%2520%2520%2522James%2520Clear%2522%252C%2520%250A%2520%2520320%252C%2520%250A%2520%2520false%252C%2520%250A%2520%2520%2522Habits%2520and%2520Productivity%2522%250A%29%253B%250A%250A%252F%252F%2520Use%2520the%2520methods%250Abook1.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522The%252048%2520Laws%2520of%2520Power%252C%2520by%2520Robert%2520Greene%252C%2520452%2520pages%252C%2520reading%2520it%2522%250Abook1.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Power%2520Dynamics%2522%250A%250Abook2.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522Atomic%2520Habits%252C%2520by%2520James%2520Clear%252C%2520320%2520pages%252C%2520not%2520read%2520yet%2522%250Abook2.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Habits%2520and%2520Productivity%2522%250A"
+  style="width: 680px; height: 1310px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin"
+  class="example-code">
+</iframe>
+
+<p class="font-black text-3xl">What is the difference between Object.create() and Object.setPrototypeOf()?</p>
+<table>
+  <thead>
+    <tr>
+    <th>Feature</th>
+    <th>Object.setPrototypeOf()</th>
+    <th>Object.create()</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>When to Use</td>
+      <td>When you already have a prototype and want to modify it.</td>
+      <td>When creating a new prototype object from scratch.</td>
+    </tr>
+    <tr>
+      <td>Modification</td>
+      <td>Modifies an existing prototype dynamically.	</td>
+      <td>Creates a new prototype linked to the given object.</td>
+    </tr>
+    <tr>
+      <td>Performance</td>
+      <td>Slower (dynamic changes force engine de-optimization).</td>
+      <td>Faster (prototypes set during object creation).</td>
+    </tr>
+    <tr>
+      <td>Constructor Reference</td>
+      <td>No need to reset constructor reference.</td>
+      <td>Must reset constructor manually.</td>
+    </tr>
+    <tr>
+      <td>Use Case</td>
+      <td>Useful for retrofit inheritance or runtime changes.</td>
+      <td>Better for initial inheritance setup.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p> Which One to Use?</p>
+<ul class="text-left mx-32 font-medium list-disc list-inside text-[#fcfcfc] pb-12">
+  <li>
+    Object.create() is preferred when you want to set up inheritance from the start. 
+    It creates a new prototype object, making it clearer and more efficient for 
+    initial setups.
+  </li>
+  <li>
+    Object.setPrototypeOf() is useful if you need to modify inheritance dynamically,
+    such as when working with existing objects or prototypes that 
+    were not initially linked correctly.
+  </li>
+</ul>
+
+<p class="font-black text-3xl">3. Using ES6 Class (Modern JavaScript Implementation)</p>
+
+<p>
+  It is different to the two examples above and this is the standard and modern way
+  to inherit prototypes. 
+</p>
+
+<ol class="text-left mx-32 list-decimal list-inside !list-decimal text-[#fcfcfc]">
+  <li>
+    Parent Class is the Book function with the properties of
+    title, author, pages, and read. I include the function/method info() 
+    inside the Parent Class since this is the way to implement it.
+  </li>
+  <br>
+  <li>
+    Child Class was created and automatically insert word "extends"
+    after the naming of child class and will be followed by parent class to
+    inherit that properties and methods from parent class.
+  </li>
+  <br>
+  <li>
+    Inside the child constructor I use super() method instead of call() because
+    this is the standard for the class inheritance. The implementation of super is same with call
+    but without using "this" keyword. Just insert the properties from parent and same implementation when adding
+    new properties from created child constructor. 
+  </li>
+  <br>
+  <li>
+    I created showTopic() method inside child class since it will be separated 
+    function exclusive this child class only.
+  </li>
+  <br>
+  <li>
+    In order to use the inherited prototype, I must create new instances which is 
+    book1 and book2 and using <strong><em>new</em></strong> keyword to use created constructor.
+  </li>
+  </ol>
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C0%29&t=blackboard&wt=sharp&l=javascript&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=JetBrains+Mono&fs=12.5px&lh=139%25&si=false&es=2x&wm=false&code=%252F%252F%2520Parent%2520Class%253A%2520Book%250Aclass%2520Book%2520%257B%250A%2520%2520constructor%28title%252C%2520author%252C%2520pages%252C%2520read%29%2520%257B%250A%2520%2520%2520%2520this.title%2520%253D%2520title%253B%250A%2520%2520%2520%2520this.author%2520%253D%2520author%253B%250A%2520%2520%2520%2520this.pages%2520%253D%2520pages%253B%250A%2520%2520%2520%2520this.read%2520%253D%2520read%253B%250A%2520%2520%257D%250A%250A%2520%2520%252F%252F%2520Method%2520to%2520display%2520information%2520about%2520the%2520book%250A%2520%2520info%28%29%2520%257B%250A%2520%2520%2520%2520const%2520result%2520%253D%2520this.read%250A%2520%2520%2520%2520%2520%2520%253F%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520reading%2520it%2560%250A%2520%2520%2520%2520%2520%2520%253A%2520%2560%2524%257Bthis.title%257D%252C%2520by%2520%2524%257Bthis.author%257D%252C%2520%2524%257Bthis.pages%257D%2520pages%252C%2520not%2520read%2520yet%2560%253B%250A%2520%2520%2520%2520console.log%28result%29%253B%250A%2520%2520%257D%250A%257D%250A%250A%252F%252F%2520Child%2520Class%253A%2520SelfImprovementBook%2520%28inherits%2520from%2520Book%29%250Aclass%2520SelfImprovementBook%2520extends%2520Book%2520%257B%250A%2520%2520constructor%28title%252C%2520author%252C%2520pages%252C%2520read%252C%2520topic%29%2520%257B%250A%2520%2520%2520%2520%252F%252F%2520Call%2520the%2520parent%2520constructor%2520with%2520%2560super%28%29%2560%250A%2520%2520%2520%2520super%28title%252C%2520author%252C%2520pages%252C%2520read%29%253B%250A%2520%2520%2520%2520this.topic%2520%253D%2520topic%253B%2520%252F%252F%2520New%2520property%2520specific%2520to%2520self-improvement%2520books%250A%2520%2520%257D%250A%250A%2520%2520%252F%252F%2520Method%2520to%2520display%2520the%2520topic%2520of%2520the%2520book%250A%2520%2520showTopic%28%29%2520%257B%250A%2520%2520%2520%2520console.log%28%2560This%2520book%2520focuses%2520on%253A%2520%2524%257Bthis.topic%257D%2560%29%253B%250A%2520%2520%257D%250A%257D%250A%250A%252F%252F%2520Create%2520instances%2520of%2520SelfImprovementBook%250Aconst%2520book1%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522The%252048%2520Laws%2520of%2520Power%2522%252C%250A%2520%2520%2522Robert%2520Greene%2522%252C%250A%2520%2520452%252C%250A%2520%2520true%252C%250A%2520%2520%2522Power%2520Dynamics%2522%250A%29%253B%250A%250Aconst%2520book2%2520%253D%2520new%2520SelfImprovementBook%28%250A%2520%2520%2522Atomic%2520Habits%2522%252C%250A%2520%2520%2522James%2520Clear%2522%252C%250A%2520%2520320%252C%250A%2520%2520false%252C%250A%2520%2520%2522Habits%2520and%2520Productivity%2522%250A%29%253B%250A%250A%252F%252F%2520Use%2520the%2520methods%250Abook1.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522The%252048%2520Laws%2520of%2520Power%252C%2520by%2520Robert%2520Greene%252C%2520452%2520pages%252C%2520reading%2520it%2522%250Abook1.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Power%2520Dynamics%2522%250A%250Abook2.info%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522Atomic%2520Habits%252C%2520by%2520James%2520Clear%252C%2520320%2520pages%252C%2520not%2520read%2520yet%2522%250Abook2.showTopic%28%29%253B%2520%252F%252F%2520Output%253A%2520%2522This%2520book%2520focuses%2520on%253A%2520Habits%2520and%2520Productivity%2522%250A"
+  style="width: 680px; height: 1200px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin"
+  class="example-code">>
+</iframe>
+
+<p class="font-black text-2xl">Advantages of ES6 Classes</p>
+<ul class="text-left mx-32 font-medium list-disc list-inside text-[#fcfcfc] pb-12">
+  <li>
+    Cleaner syntax: Classes provide a more readable and concise way to define inheritance.
+  </li>
+  <li>
+    super() keyword: Simplifies calling the parent constructor and methods.
+  </li>
+  <li>
+    Encapsulation: Methods are defined directly within the class, keeping code organized.
+  </li>
+  <li>
+    Prototypical inheritance under the hood: Even though classes offer syntactic sugar, they still follow JavaScript’s prototype-based inheritance model.
+  </li>
+
+  <p>This modern approach is recommended for most new JavaScript projects, as it makes the code more intuitive and maintainable.</p>
+</ul>
     </div>
   </body>
 </html>
